@@ -3,9 +3,17 @@ import java.util.List;
 
 public class Dispatcher {
     private List<Interceptor> interceptors;
+    private static Dispatcher dispatcher;
 
     public Dispatcher() {
         this.interceptors = new ArrayList<>();
+    }
+
+    public static Dispatcher getInstance() {
+        if (dispatcher == null) {
+            dispatcher = new Dispatcher();
+        }
+        return dispatcher;
     }
 
     public void registerInterceptor(Interceptor interceptor) {
