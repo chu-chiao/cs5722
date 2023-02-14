@@ -10,6 +10,10 @@ class CdPlayerTest {
         dispatcher.registerInterceptor(new StopInterceptor());
 
         ContextObject contextObject = new ContextObject();
+        contextObject.setPlaying(true);
+        dispatcher.dispatchButtonPushed(contextObject);
+        assert(contextObject.getPlayingState());
+        contextObject.setPlaying(false);
         dispatcher.dispatchButtonPushed(contextObject);
         assertFalse(contextObject.getPlayingState());
     }

@@ -26,7 +26,11 @@ public class Dispatcher {
 
     public void dispatchButtonPushed(ContextObject context) {
         for (Interceptor interceptor : interceptors) {
-            interceptor.buttonPushed(context);
+            if (context.getPlayingState()) {
+                if (interceptor instanceof PlayInterceptor) interceptor.buttonPushed(context);
+            } else {
+                if (interceptor instanceof StopInterceptor) interceptor.buttonPushed(context);
+            }
         }
     }
 }
