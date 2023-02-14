@@ -1,7 +1,7 @@
 public class PlayInterceptor implements Interceptor{
     @Override
     public void buttonPushed(ContextObject context) {
-        System.out.println("Playing CD");
+        System.out.println("Play CD");
         context.setPlaying(true);
     }
 }
