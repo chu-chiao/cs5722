@@ -1,6 +1,9 @@
-public class PlayInterceptor implements Interceptor{
+public class PlayInterceptor implements IInterceptor {
     @Override
     public void buttonPushed(ContextObject context) {
-        System.out.println("Play CD");
+        CdPlayer cdPlayer = (CdPlayer) context.getTarget();
+        if (!cdPlayer.getStatus() && context.getPlay()) {
+            cdPlayer.play();
+        }
     }
 }

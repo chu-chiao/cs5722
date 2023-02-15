@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Dispatcher {
-    private List<Interceptor> interceptors;
+    private List<IInterceptor> interceptors;
     private static Dispatcher dispatcher;
 
     public Dispatcher() {
@@ -16,21 +16,17 @@ public class Dispatcher {
         return dispatcher;
     }
 
-    public void registerInterceptor(Interceptor interceptor) {
+    public void registerInterceptor(IInterceptor interceptor) {
         this.interceptors.add(interceptor);
     }
 
-    public void removeInterceptor(Interceptor interceptor) {
+    public void removeInterceptor(IInterceptor interceptor) {
         this.interceptors.add(interceptor);
     }
 
     public void dispatchButtonPushed(ContextObject context) {
-        for (Interceptor interceptor : interceptors) {
-            if (context.getPlayingState()) {
-                if (interceptor instanceof PlayInterceptor) interceptor.buttonPushed(context);
-            } else {
-                if (interceptor instanceof StopInterceptor) interceptor.buttonPushed(context);
-            }
+        for (IInterceptor interceptor : interceptors) {
+            interceptor.buttonPushed(context);
         }
     }
 }

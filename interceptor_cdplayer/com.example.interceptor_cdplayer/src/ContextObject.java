@@ -1,11 +1,25 @@
 public class ContextObject {
-    private boolean playingState;
+    private CdPlayer target;
+    private boolean play;
 
-    public boolean getPlayingState() {
-        return playingState;
+    public ContextObject(CdPlayer target) {
+        this.target = target;
     }
 
-    public void setPlaying(boolean isPlaying) {
-        this.playingState = isPlaying;
+    public CdPlayer getTarget() {
+        return target;
     }
+
+    public void setTarget(CdPlayer target) {
+        this.target = target;
+    }
+
+    public boolean getPlay() {
+        return play;
+    }
+
+    public void setPlay(boolean play) {
+        this.play = play;
+    }
+
 }
