@@ -1,7 +1,7 @@
 public class CdPlayer implements IPushCallBack{
     private Button playButton;
     private Button stopButton;
-    private Dispatcher dispatcher = new Dispatcher();
+    private Dispatcher dispatcher = Dispatcher.getInstance();
     private ContextObject context;
     private boolean status;
 
