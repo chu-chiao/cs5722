@@ -11,8 +11,8 @@ class CdPlayerTest {
         cdPlayer.setPlayButton(playButton);
         cdPlayer.setStopButton(stopButton);
         playButton.push();
-        assert(cdPlayer.getStatus());
+        assert(cdPlayer.getPlayingStatus());
         stopButton.push();
-        assertFalse(cdPlayer.getStatus());
+        assertFalse(cdPlayer.getPlayingStatus());
     }
 }

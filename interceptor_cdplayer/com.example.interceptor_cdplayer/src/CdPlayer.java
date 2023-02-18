@@ -3,7 +3,7 @@ public class CdPlayer implements IPushCallBack{
     private Button stopButton;
     private Dispatcher dispatcher = Dispatcher.getInstance();
     private ContextObject context;
-    private boolean status;
+    private boolean playingStatus;
 
     public CdPlayer() {
         dispatcher.registerInterceptor(new PlayInterceptor());
@@ -12,7 +12,8 @@ public class CdPlayer implements IPushCallBack{
     }
 
     public final void notifyButtonPushed(Button b) {
-        context.setPlay(b == playButton);
+        // Use playButton or stopButton is pushed to distinguish it is play event or stop event
+        context.setPlayEvent(b == playButton);
         dispatcher.dispatchButtonPushed(context);
     }
 
@@ -24,17 +25,17 @@ public class CdPlayer implements IPushCallBack{
         stopButton = b;
     }
 
-    public boolean getStatus() {
-        return status;
+    public boolean getPlayingStatus() {
+        return playingStatus;
     }
 
     public void play() {
-        status = true;
+        playingStatus = true;
         System.out.println("Play CD");
     }
 
     public void stop() {
-        status = false;
+        playingStatus = false;
         System.out.println("Stop playing CD");
     }
 }
