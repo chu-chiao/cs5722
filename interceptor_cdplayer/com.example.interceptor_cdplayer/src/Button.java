@@ -1,9 +1,14 @@
 public class Button {
     private IPushCallBack iPushCallBack;
-    public Button(IPushCallBack ipcb) {
-        iPushCallBack = ipcb;
+    private IInterceptor iInterceptor;
+    public Button(IPushCallBack ipcb, IInterceptor iInterceptor) {
+        this.iPushCallBack = ipcb;
+        this.iInterceptor = iInterceptor;
     }
     public final void push() {
-        iPushCallBack.notifyButtonPushed(this);
+        this.iPushCallBack.notifyButtonPushed(this);
+    }
+    public IInterceptor getInterceptor() {
+        return this.iInterceptor;
     }
 }

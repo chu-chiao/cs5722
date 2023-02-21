@@ -6,8 +6,6 @@ public class CdPlayer implements IPushCallBack{
     private boolean playingStatus;
 
     public CdPlayer() {
-        dispatcher.registerInterceptor(new PlayInterceptor());
-        dispatcher.registerInterceptor(new StopInterceptor());
         context = new ContextObject(this);
     }
 
@@ -19,10 +17,12 @@ public class CdPlayer implements IPushCallBack{
 
     public final void setPlayButton(Button b) {
         playButton = b;
+        dispatcher.registerInterceptor(b.getInterceptor());
     }
 
     public final void setStopButton(Button b) {
         stopButton = b;
+        dispatcher.registerInterceptor(b.getInterceptor());
     }
 
     public boolean getPlayingStatus() {
