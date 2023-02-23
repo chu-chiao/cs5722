@@ -51,4 +51,8 @@ public class CdPlayer implements IPushCallBack{
         System.out.println("The album is: " + albumName);
         this.album = albumName;
     }
+
+    public String getAlbum() {
+        return this.album;
+    }
 }
