@@ -1,7 +1,7 @@
 public class StopInterceptor implements IInterceptor {
     @Override
     public void buttonPushed(ContextObject context) {
-        if (!context.getPlayEvent()) {
+        if (context.getButtonType() == ButtonType.STOP) {
             context.stopTrack();
         }
 

@@ -1,7 +1,7 @@
 public class PlayInterceptor implements IInterceptor {
     @Override
     public void buttonPushed(ContextObject context) {
-        if (context.getPlayEvent()) {
+        if (context.getButtonType() == ButtonType.PLAY) {
             context.playTrack();
         }
     }

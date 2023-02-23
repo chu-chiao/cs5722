@@ -1,17 +1,17 @@
 public class ContextObject {
     private CdPlayer target;
-    private boolean isPlayEvent;
+    private ButtonType buttonType;
 
     public ContextObject(CdPlayer target) {
         this.target = target;
     }
 
-    public boolean getPlayEvent() {
-        return isPlayEvent;
+    public ButtonType getButtonType() {
+        return buttonType;
     }
 
-    public void setPlayEvent(boolean playEvent) {
-        this.isPlayEvent = playEvent;
+    public void setButtonType(ButtonType buttonType) {
+        this.buttonType = buttonType;
     }
 
     public void playTrack() {
@@ -22,6 +22,10 @@ public class ContextObject {
     public void stopTrack() {
         if (this.target.getPlayingStatus())
             this.target.stop();
+    }
+
+    public void setAlbum() {
+        this.target.setAlbum();
     }
 
 }

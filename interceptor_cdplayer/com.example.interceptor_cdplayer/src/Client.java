@@ -1,10 +1,13 @@
 public class Client {
     public static void main(String[] args) {
         CdPlayer cdPlayer = new CdPlayer();
-        Button playButton = new Button(cdPlayer, new PlayInterceptor());
-        Button stopButton = new Button(cdPlayer, new StopInterceptor());
-        cdPlayer.setPlayButton(playButton);
-        cdPlayer.setStopButton(stopButton);
+        Button putAlbum = new Button(cdPlayer, new PutAlbumInterceptor(), ButtonType.PUT_ALBUM);
+        Button playButton = new Button(cdPlayer, new PlayInterceptor(), ButtonType.PLAY);
+        Button stopButton = new Button(cdPlayer, new StopInterceptor(), ButtonType.STOP);
+        cdPlayer.addButton(putAlbum);
+        cdPlayer.addButton(playButton);
+        cdPlayer.addButton(stopButton);
+        putAlbum.push();
         playButton.push();
         stopButton.push();
     }
